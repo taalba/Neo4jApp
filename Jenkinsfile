@@ -25,6 +25,7 @@ pipeline {
       }
       steps {
         echo 'Deploy Prod'
+        mail(subject: 'Deploy to prod', body: 'Would you like to deploy to prod', from: 'admin@jenkins.com', to: 'ytaalba@bluebeesoftware.com')
         input 'Confirm delpoy'
       }
     }
