@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>{{ message }}</h1> 
+<hr>
+
+<table class="table table-bordered"">
+    <thead>
+        <tr>
+           {% for item in header %}           
+           <th scope="col">{{ item }}</th>
+           {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for obj in data %}
+        <tr>
+            {% for item in header %}
+            <td><a href="/item/{{ itemName }}/{{ obj[itemKey] }}">{{ obj[item] }}</a></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
