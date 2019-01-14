@@ -10,6 +10,7 @@ pipeline {
       }
       steps {
         echo 'Build Stage'
+        sh 'ls /usr/src/app'
       }
     }
     stage('Test') {
