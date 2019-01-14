@@ -2,6 +2,12 @@ pipeline {
   agent any
   stages {
     stage('Build') {
+      agent {
+        docker {
+          image 'flaskwebapp_flask-app'
+        }
+
+      }
       steps {
         echo 'Build Stage'
       }
@@ -13,7 +19,7 @@ pipeline {
     }
     stage('Deploy QA') {
       when {
-                branch 'qa'
+        branch 'qa'
       }
       steps {
         echo 'Deploy QA'
@@ -21,7 +27,7 @@ pipeline {
     }
     stage('Deploy Prod') {
       when {
-                branch 'prod'
+        branch 'prod'
       }
       steps {
         echo 'Deploy Prod'
